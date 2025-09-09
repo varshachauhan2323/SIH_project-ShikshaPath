@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShikshaPath- Discover Your Dream Career</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="min-h-screen bg-gradient">
+        <!-- Animated Background Particles -->
+        <div class="particles-container">
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+            <div class="particle"></div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-brand">
+                    <div class="nav-logo">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="nav-icon">
+                            <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-.64-.64a3 3 0 0 0-2.121-.879H3.5A2.5 2.5 0 0 1 1 10.044v-.888a2.5 2.5 0 0 1 2.5-2.5h1.239a3 3 0 0 0 2.121-.879l.64-.64A2 2 0 0 0 8.937 3.5H9.5"/>
+                            <path d="M14.063 8.5A2 2 0 0 0 15.5 9.937l.64.64a3 3 0 0 0 2.121.879H20.5A2.5 2.5 0 0 1 23 13.956v.888a2.5 2.5 0 0 1-2.5 2.5h-1.239a3 3 0 0 0-2.121.879l-.64.64A2 2 0 0 0 15.063 20.5H14.5"/>
+                            <path d="M6 12h12"/>
+                        </svg>
+                    </div>
+                    <span class="nav-title">ShikshaPath</span>
+                </div>
+                <div class="nav-menu">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#careers" class="nav-link">Career Paths</a>
+                    <a href="#testimonials" class="nav-link">Success Stories</a>
+                    <div class="ai-assistant-nav" title="AI Career Assistant">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ai-assistant-icon">
+                            <path d="M12 2L2 7v10c0 5.55 3.84 10 9 11 5.16-1 9-5.45 9-11V7l-10-5z"/>
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M12 9v6"/>
+                            <path d="M9 12h6"/>
+                        </svg>
+                        <span class="ai-pulse"></span>
+                    </div>
+                    <button class="btn btn-outline">Sign In</button>
+                    <button class="btn btn-outline">Login</button>
+
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <!-- Floating AI Character -->
+            
+            <div class="container text-center">
+                <div class="hero-badge animate-bounce-custom">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="badge-icon">
+                        <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                        <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                        <path d="M4 22h16"/>
+                        <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                        <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                        <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                    </svg>
+                    Trusted by 50,000+ professionals
+                </div>
+                <h1 class="hero-title">
+                    Discover Your
+                    <span id="typewriter-text" class="hero-title-accent">Dream Career</span>
+                    
+                </h1>
+                <p class="hero-description animate-fade-in-up">
+                    Take our AI-powered career assessment to get personalized recommendations, 
+                    skill analysis, and a clear roadmap to your ideal future.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-lg btn-interactive glow-primary" onclick="window.location.href='/quiz'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon-left">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10,17 15,12 10,7"/>
+                            <line x1="15" y1="12" x2="3" y2="12"/>
+                        </svg>
+                        Start Free Assessment
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                            <path d="M5 12h14"/>
+                            <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="btn btn-primary btn-lg btn-interactive glow-primary" onclick="window.location.href='/bot'">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" 
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" 
+                            stroke-linejoin="round" class="btn-icon-left">
+                            <polygon points="5,3 19,12 5,21"/></svg> AI Assistant </button>
+
+                </div>
+                
+                <!-- Animated Stats -->
+                <div class="hero-stats">
+                    <div class="stat hover-lift">
+                        <div class="stat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="13,2 3,14 12,14 11,22 21,10 12,10"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number animate-pulse">15min</div>
+                        <div class="stat-label">Assessment Time</div>
+                    </div>
+                    <div class="stat hover-lift">
+                        <div class="stat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <circle cx="12" cy="12" r="6"/>
+                                <circle cx="12" cy="12" r="2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number animate-pulse">95%</div>
+                        <div class="stat-label">Accuracy Rate</div>
+                    </div>
+                    <div class="stat hover-lift">
+                        <div class="stat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number animate-pulse">500+</div>
+                        <div class="stat-label">Career Options</div>
+                    </div>
+                    <div class="stat hover-lift">
+                        <div class="stat-icon">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                <path d="M4 22h16"/>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                            </svg>
+                        </div>
+                        <div class="stat-number animate-pulse">24/7</div>
+                        <div class="stat-label">Support</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+<section id="features" class="features">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title animate-gradient">Why Choose CareerPath?</h2>
+      <p class="section-description">
+        Our advanced platform combines AI technology with industry expertise to guide your career journey.
+      </p>
+    </div>
+
+    <div class="features-grid">
+      
+      <section id="features" class="features">
+  <div class="container">
+    <div class="features-grid">
+
+      <!-- Feature 1 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/bot'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 
+                     1.18 6.88L12 17.77l-6.18 3.25L7 14.14 
+                     2 9.27l6.91-1.01L12 2z"/>
+            <circle cx="12" cy="12" r="3"/>
+            <path d="m8 12 2 2 4-4"/>
+            <circle cx="12" cy="12" r="8" stroke-dasharray="5 5" stroke-dashoffset="0">
+              <animateTransform attributeName="transform" type="rotate" 
+                                values="0 12 12;360 12 12" dur="3s" repeatCount="indefinite"/>
+            </circle>
+          </svg>
+        </div>
+        <h3 class="feature-title">AI-Powered Assessment</h3>
+        <div class="feature-benefit">97% accuracy rate</div>
+        <p class="feature-description">
+          Advanced algorithms analyze your skills, interests, and personality to provide personalized career recommendations.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/mapping'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
+            <path d="M7.5 19.79V14.6L3 12"/>
+            <path d="M21 12l-4.5 2.6v5.19"/>
+            <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
+            <path d="M12 22.08V12"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Career Path Mapping</h3>
+        <div class="feature-benefit">Step-by-step guidance</div>
+        <p class="feature-description">
+          Get clear roadmaps showing the steps needed to reach your dream career, including skills and experience required.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/mentor'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" 
+               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+            <path d="M7.5 4.21l4.5 2.6 4.5-2.6"/>
+            <path d="M7.5 19.79V14.6L3 12"/>
+            <path d="M21 12l-4.5 2.6v5.19"/>
+            <path d="M3.27 6.96L12 12.01l8.73-5.05"/>
+            <path d="M12 22.08V12"/>
+          </svg>
+        </div>
+        <h3 class="feature-title">Industry Mentorship</h3>
+        <div class="feature-benefit">1000+ mentors</div>
+        <p class="feature-description">
+          Connect with professionals in your field of interest for guidance, networking, and career advice.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card card-interactive hover-lift" onclick="window.location.href='/college_map'">
+        <div class="feature-icon animate-float">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M2 12h20"/>
+            <path d="M12 2c2.5 3 2.5 7 0 10c-2.5 3-2.5 7 0 10"/>
+            <path d="M5 4.5c4 1.5 4 8 0 9.5"/> 
+            <path d="M19 4.5c-4 1.5-4 8 0 9.5"/>
+            <path d="M4.93 4.93a10 10 0 0 0 14.14 0"/> 
+            <path d="M4.93 19.07a10 10 0 0 1 14.14 0"/> 
+            <circle cx="12" cy="12" r="11" stroke-dasharray="5 5" stroke-dashoffset="0"> 
+              <animateTransform attributeName="transform" type="rotate" values="0 12 12;360 12 12" dur="6s" repeatCount="indefinite"/> 
+            </circle> 
+          </svg>
+        </div>
+        <h3 class="feature-title">College Finder</h3>
+        <div class="feature-benefit">Find your dream college</div>
+        <p class="feature-description">
+          Discover the right college for your future, tailored to your goals, location, and interests.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<style>
+.features-grid {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  gap: 200px;
+}
+
+.feature-card {
+  flex: 1 1 300px; /* min 300px, grow if space */
+  max-width: 320px;
+  padding: 20px;
+  border-radius: 12px;
+  background: #e0bbf7;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-icon {
+  margin-bottom: 12px;
+  color: #4670e5; /* violet-ish for nice look */
+}
+</style>
+
+
+
+        <!-- Career Paths Section -->
+        <section id="careers" class="careers">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Explore High-Growth Career Paths</h2>
+                    <p class="section-description">
+                        Discover trending careers with strong growth potential and competitive salaries.
+                    </p>
+                </div>
+                <div class="careers-grid">
+                    <div class="career-card card-interactive" onclick="selectCareer(this, 'tech')">
+                        <div class="career-gradient-bar bg-blue-gradient"></div>
+                        <div class="career-header">
+                            <div class="career-indicator bg-blue animate-pulse"></div>
+                            <span class="career-growth">+22% growth</span>
+                        </div>
+                        <h3 class="career-title">Technology</h3>
+                        <p class="career-description">Software development, data science, cybersecurity</p>
+                        <div class="career-details">
+                            <div class="career-salary">
+                                <span class="salary-label">Avg Salary:</span>
+                                <span class="salary-value">$95K avg</span>
+                            </div>
+                            <div class="demand-section">
+                                <div class="demand-label">Market Demand</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 95%"></div>
+                                </div>
+                                <div class="demand-score">95% demand score</div>
+                            </div>
+                            <div class="career-skills">
+                                <div class="skills-label">Key Skills:</div>
+                                <div class="skills-list">
+                                    <span class="skill-tag">Programming</span>
+                                    <span class="skill-tag">Problem-solving</span>
+                                    <span class="skill-tag">Analytics</span>
+                                </div>
+                            </div>
+                            <div class="companies-section">
+                                <div class="companies-label">Top Companies:</div>
+                                <div class="companies-list">Google, Microsoft +2 more</div>
+                            </div>
+                        </div>
+                        <div class="career-cta hidden">
+                            <button class="btn btn-primary btn-sm">
+                                Explore Technology Path
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="career-card card-interactive" onclick="selectCareer(this, 'healthcare')">
+                        <div class="career-gradient-bar bg-green-gradient"></div>
+                        <div class="career-header">
+                            <div class="career-indicator bg-green animate-pulse"></div>
+                            <span class="career-growth">+16% growth</span>
+                        </div>
+                        <h3 class="career-title">Healthcare</h3>
+                        <p class="career-description">Nursing, medical technology, therapy</p>
+                        <div class="career-details">
+                            <div class="career-salary">
+                                <span class="salary-label">Avg Salary:</span>
+                                <span class="salary-value">$75K avg</span>
+                            </div>
+                            <div class="demand-section">
+                                <div class="demand-label">Market Demand</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 88%"></div>
+                                </div>
+                                <div class="demand-score">88% demand score</div>
+                            </div>
+                            <div class="career-skills">
+                                <div class="skills-label">Key Skills:</div>
+                                <div class="skills-list">
+                                    <span class="skill-tag">Empathy</span>
+                                    <span class="skill-tag">Critical thinking</span>
+                                    <span class="skill-tag">Communication</span>
+                                </div>
+                            </div>
+                            <div class="companies-section">
+                                <div class="companies-label">Top Companies:</div>
+                                <div class="companies-list">Mayo Clinic, Johns Hopkins +2 more</div>
+                            </div>
+                        </div>
+                        <div class="career-cta hidden">
+                            <button class="btn btn-primary btn-sm">
+                                Explore Healthcare Path
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="career-card card-interactive" onclick="selectCareer(this, 'business')">
+                        <div class="career-gradient-bar bg-purple-gradient"></div>
+                        <div class="career-header">
+                            <div class="career-indicator bg-purple animate-pulse"></div>
+                            <span class="career-growth">+8% growth</span>
+                        </div>
+                        <h3 class="career-title">Business</h3>
+                        <p class="career-description">Marketing, consulting, project management</p>
+                        <div class="career-details">
+                            <div class="career-salary">
+                                <span class="salary-label">Avg Salary:</span>
+                                <span class="salary-value">$68K avg</span>
+                            </div>
+                            <div class="demand-section">
+                                <div class="demand-label">Market Demand</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 76%"></div>
+                                </div>
+                                <div class="demand-score">76% demand score</div>
+                            </div>
+                            <div class="career-skills">
+                                <div class="skills-label">Key Skills:</div>
+                                <div class="skills-list">
+                                    <span class="skill-tag">Leadership</span>
+                                    <span class="skill-tag">Strategy</span>
+                                    <span class="skill-tag">Negotiation</span>
+                                </div>
+                            </div>
+                            <div class="companies-section">
+                                <div class="companies-label">Top Companies:</div>
+                                <div class="companies-list">McKinsey, BCG +2 more</div>
+                            </div>
+                        </div>
+                        <div class="career-cta hidden">
+                            <button class="btn btn-primary btn-sm">
+                                Explore Business Path
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="career-card card-interactive" onclick="selectCareer(this, 'creative')">
+                        <div class="career-gradient-bar bg-pink-gradient"></div>
+                        <div class="career-header">
+                            <div class="career-indicator bg-pink animate-pulse"></div>
+                            <span class="career-growth">+13% growth</span>
+                        </div>
+                        <h3 class="career-title">Creative</h3>
+                        <p class="career-description">Design, content creation, digital media</p>
+                        <div class="career-details">
+                            <div class="career-salary">
+                                <span class="salary-label">Avg Salary:</span>
+                                <span class="salary-value">$58K avg</span>
+                            </div>
+                            <div class="demand-section">
+                                <div class="demand-label">Market Demand</div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 82%"></div>
+                                </div>
+                                <div class="demand-score">82% demand score</div>
+                            </div>
+                            <div class="career-skills">
+                                <div class="skills-label">Key Skills:</div>
+                                <div class="skills-list">
+                                    <span class="skill-tag">Creativity</span>
+                                    <span class="skill-tag">Visual design</span>
+                                    <span class="skill-tag">Storytelling</span>
+                                </div>
+                            </div>
+                            <div class="companies-section">
+                                <div class="companies-label">Top Companies:</div>
+                                <div class="companies-list">Adobe, Netflix +2 more</div>
+                            </div>
+                        </div>
+                        <div class="career-cta hidden">
+                            <button class="btn btn-primary btn-sm">
+                                Explore Creative Path
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                                    <path d="M5 12h14"/>
+                                    <path d="m12 5 7 7-7 7"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced Testimonials Section -->
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Success Stories</h2>
+                    <p class="section-description">
+                        Join thousands of professionals who found their perfect career path with our guidance.
+                    </p>
+                </div>
+                
+                <!-- Featured Testimonial Carousel -->
+                <div class="testimonial-carousel">
+                    <div class="testimonial-featured card-interactive hover-lift glow-primary">
+                        <div class="testimonial-rating">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="star">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                        </div>
+                        <blockquote id="testimonial-content" class="testimonial-content">
+                            "ShikshaPath helped me transition from marketing to tech. The personalized roadmap was exactly what I needed."
+                        </blockquote>
+                        <div class="testimonial-author">
+                            <div id="author-avatar" class="author-avatar">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="3"/>
+                                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                            </div>
+                            <div class="author-info">
+                                <div id="author-name" class="author-name">Sarah Chen</div>
+                                <div id="author-role" class="author-role">Software Engineer</div>
+                                <div id="author-company" class="author-company">Google</div>
+                                <div id="author-time" class="author-time">Career change in 6 months</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Testimonial Navigation -->
+                    <div class="testimonial-nav">
+                        <button class="nav-dot active" onclick="showTestimonial(0)"></button>
+                        <button class="nav-dot" onclick="showTestimonial(1)"></button>
+                        <button class="nav-dot" onclick="showTestimonial(2)"></button>
+                    </div>
+                </div>
+
+                <!-- Success Metrics -->
+                <div class="success-metrics">
+                    <div class="metric hover-lift">
+                        <div class="metric-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                                <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                                <path d="M4 22h16"/>
+                                <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                                <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                                <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                            </svg>
+                        </div>
+                        <div class="metric-number">10,000+</div>
+                        <div class="metric-label">Successful Career Changes</div>
+                    </div>
+                    <div class="metric hover-lift">
+                        <div class="metric-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <polygon points="12,2 15.09,8.26 22,9.27 17,14.14 18.18,21.02 12,17.77 5.82,21.02 7,14.14 2,9.27 8.91,8.26"/>
+                            </svg>
+                        </div>
+                        <div class="metric-number">4.9/5</div>
+                        <div class="metric-label">Average User Rating</div>
+                    </div>
+                    <div class="metric hover-lift">
+                        <div class="metric-icon">
+                            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                                <polyline points="10,17 15,12 10,7"/>
+                                <line x1="15" y1="12" x2="3" y2="12"/>
+                            </svg>
+                        </div>
+                        <div class="metric-number">3 months</div>
+                        <div class="metric-label">Average Time to New Career</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Enhanced CTA Section -->
+        <section class="cta">
+            <div class="floating-bg-particles">
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+                <div class="bg-particle"></div>
+            </div>
+            <div class="container text-center">
+                <h2 class="cta-title animate-gradient">Ready to Find Your Dream Career?</h2>
+                <p class="cta-description">
+                    Take the first step towards a fulfilling career. Our AI-powered assessment takes just 15 minutes.
+                </p>
+                <div class="cta-buttons">
+                    <button class="btn btn-secondary btn-lg btn-interactive glow-primary" onclick="window.location.href='/quiz'">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon-left">
+                            <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/>
+                            <polyline points="10,17 15,12 10,7"/>
+                            <line x1="15" y1="12" x2="3" y2="12"/>
+                        </svg>
+                        Start Free Assessment
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="btn-icon">
+                            <path d="M5 12h14"/>
+                            <path d="m12 5 7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <div class="cta-note">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="check-icon">
+                            <path d="M20 6 9 17l-5-5"/>
+                        </svg>
+                        <span>No credit card required</span>
+                    </div>
+                </div>
+                
+                <!-- Social Proof -->
+                <div class="social-proof">
+                    <div class="proof-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="m22 21-3-3"/>
+                            <path d="m16 16 3 3"/>
+                        </svg>
+                        <span>50,000+ users</span>
+                    </div>
+                    <div class="proof-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 6v6l4 2"/>
+                        </svg>
+                        <span>Available in 20+ countries</span>
+                    </div>
+                    <div class="proof-item">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+                            <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+                            <path d="M4 22h16"/>
+                            <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+                            <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+                            <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+                        </svg>
+                        <span>Industry recognized</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-brand">
+                        <div class="footer-logo">
+                            <div class="footer-logo-icon">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-.64-.64a3 3 0 0 0-2.121-.879H3.5A2.5 2.5 0 0 1 1 10.044v-.888a2.5 2.5 0 0 1 2.5-2.5h1.239a3 3 0 0 0 2.121-.879l.64-.64A2 2 0 0 0 8.937 3.5H9.5"/>
+                                    <path d="M14.063 8.5A2 2 0 0 0 15.5 9.937l.64.64a3 3 0 0 0 2.121.879H20.5A2.5 2.5 0 0 1 23 13.956v.888a2.5 2.5 0 0 1-2.5 2.5h-1.239a3 3 0 0 0-2.121.879l-.64.64A2 2 0 0 0 15.063 20.5H14.5"/>
+                                    <path d="M6 12h12"/>
+                                </svg>
+                            </div>
+                            <span class="footer-title">ShikshaPath</span>
+                        </div>
+                        <p class="footer-description">
+                            Empowering professionals to discover and achieve their dream careers through AI-powered guidance.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <div class="social-icon"></div>
+                            </a>
+                            <a href="#" class="social-link">
+                                <div class="social-icon"></div>
+                            </a>
+                            <a href="#" class="social-link">
+                                <div class="social-icon"></div>
+                            </a>
+                            <a href="#" class="social-link">
+                                <div class="social-icon"></div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-column-title">Platform</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Career Assessment</a></li>
+                            <li><a href="#" class="footer-link">Skill Analysis</a></li>
+                            <li><a href="#" class="footer-link">Job Market Data</a></li>
+                            <li><a href="#" class="footer-link">Mentorship</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-column-title">Resources</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">Career Guides</a></li>
+                            <li><a href="#" class="footer-link">Industry Reports</a></li>
+                            <li><a href="#" class="footer-link">Success Stories</a></li>
+                            <li><a href="#" class="footer-link">Blog</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h3 class="footer-column-title">Company</h3>
+                        <ul class="footer-links">
+                            <li><a href="#" class="footer-link">About Us</a></li>
+                            <li><a href="#" class="footer-link">Contact</a></li>
+                            <li><a href="#" class="footer-link">Privacy Policy</a></li>
+                            <li><a href="#" class="footer-link">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2025 ShikshaPath . All rights reserved. Powered by AI 🚀</p>
+                </div>
+            </div>
+        </footer>
+    
+
+    
+
+    <script>
+        // Typewriter Effect
+        const words = ["Dream Career", "Perfect Match", "Future Success", "Career Growth"];
+        let currentWordIndex = 0;
+        let currentCharIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter-text');
+
+        function typeWriter() {
+            const currentWord = words[currentWordIndex];
+            
+            if (isDeleting) {
+                typewriterElement.textContent = currentWord.substring(0, currentCharIndex - 1);
+                currentCharIndex--;
+            } else {
+                typewriterElement.textContent = currentWord.substring(0, currentCharIndex + 1);
+                currentCharIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && currentCharIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && currentCharIndex === 0) {
+                isDeleting = false;
+                currentWordIndex = (currentWordIndex + 1) % words.length;
+                typeSpeed = 200;
+            }
+
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        // Auto-rotate testimonials
+        const testimonials = [
+            {
+                content: "ShikshaPath helped me transition from marketing to tech. The personalized roadmap was exactly what I needed.",
+                name: "Sarah Chen",
+                role: "Software Engineer",
+                company: "Google",
+                avatar: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M12 1v6M12 17v6M4.22 4.22l4.24 4.24M15.54 15.54l4.24 4.24M1 12h6M17 12h6M4.22 19.78l4.24-4.24M15.54 8.46l4.24-4.24"/>
+                    <circle cx="12" cy="12" r="10"/>
+                </svg>`,
+                time: "6 months"
+            },
+            {
+                content: "The AI assessment identified skills I didn't even know I had. Now I'm in my dream job!",
+                name: "Marcus Johnson",
+                role: "Data Analyst",
+                company: "Netflix",
+                avatar: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="11" width="18" height="10" rx="2" ry="2"/>
+                    <circle cx="12" cy="5" r="2"/>
+                    <path d="M12 7v4"/>
+                    <line x1="8" y1="16" x2="8" y2="16"/>
+                    <line x1="16" y1="16" x2="16" y2="16"/>
+                </svg>`,
+                time: "4 months"
+            },
+            {
+                content: "From confusion to clarity in just one assessment. The career guidance was life-changing.",
+                name: "Emily Rodriguez",
+                role: "UX Designer",
+                company: "Airbnb",
+                avatar: `<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                    <circle cx="12" cy="12" r="4"/>
+                </svg>`,
+                time: "8 months"
+            }
+        ];
+
+        let currentTestimonialIndex = 0;
+
+        function showTestimonial(index) {
+            currentTestimonialIndex = index;
+            const testimonial = testimonials[index];
+            
+            document.getElementById('testimonial-content').textContent = testimonial.content;
+            document.getElementById('author-name').textContent = testimonial.name;
+            document.getElementById('author-role').textContent = testimonial.role;
+            document.getElementById('author-company').textContent = testimonial.company;
+            document.getElementById('author-avatar').innerHTML = testimonial.avatar;
+            document.getElementById('author-time').textContent = `Career change in ${testimonial.time}`;
+            
+            // Update navigation dots
+            document.querySelectorAll('.nav-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        function autoRotateTestimonials() {
+            currentTestimonialIndex = (currentTestimonialIndex + 1) % testimonials.length;
+            showTestimonial(currentTestimonialIndex);
+        }
+
+        // Career card selection
+        function selectCareer(card, careerType) {
+            // Remove active class from all cards
+            document.querySelectorAll('.career-card').forEach(c => {
+                c.classList.remove('active');
+                c.querySelector('.career-cta').classList.add('hidden');
+            });
+            
+            // Add active class to selected card
+            card.classList.add('active');
+            card.querySelector('.career-cta').classList.remove('hidden');
+        }
+
+        ~
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // AI Character Messages
+        const aiMessages = [
+            "Hi! I'm your AI career assistant! 🚀",
+            "Ready to discover your dream career? ✨",
+            "Let's analyze your skills together! 🔍",
+            "Your perfect career awaits! 💫",
+            "AI-powered guidance at your service! 🤖"
+        ];
+
+        function rotateAIMessages() {
+            const messageElement = document.getElementById('ai-message');
+            if (messageElement) {
+                let currentIndex = 0;
+                setInterval(() => {
+                    messageElement.textContent = aiMessages[currentIndex];
+                    currentIndex = (currentIndex + 1) % aiMessages.length;
+                }, 4000);
+            }
+        }
+
+        // Initialize animations and effects
+        document.addEventListener('DOMContentLoaded', function() {
+            typeWriter();
+            setInterval(autoRotateTestimonials, 4000);
+            rotateAIMessages();
+
+            // Animate progress bars on scroll
+            const progressBars = document.querySelectorAll('.progress-fill');
+            const observerOptions = { threshold: 0.5 };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.animation = 'progressFill 1.5s ease-out forwards';
+                    }
+                });
+            }, observerOptions);
+
+            progressBars.forEach(bar => { observer.observe(bar); });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Course → Career Mapping</title>
+<style>
+:root {
+  --accent: #0ea5e9;
+  --muted: #64748b;
+}
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; overflow-x: hidden; }
+
+/* Body with light blue */
+body {
+  font-family: Inter, system-ui, sans-serif;
+  background: #f0f8ff; /* very light blue */
+  padding: 28px;
+  color: #0f172a;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Bubble background */
+.bubbles {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+.bubble {
+  position: absolute;
+  bottom: -100px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  animation: rise 20s infinite ease-in;
+}
+@keyframes rise {
+  0% { transform: translateY(0) scale(1); opacity: 0.6; }
+  50% { opacity: 0.3; }
+  100% { transform: translateY(-120vh) scale(1.5); opacity: 0; }
+}
+
+/* Header */
+header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+header h1 {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(14,165,233,0.7),
+               0 0 20px rgba(14,165,233,0.5),
+               0 0 30px rgba(14,165,233,0.3);
+}
+header p {
+  color: var(--muted);
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+/* Container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 1; /* above bubbles */
+}
+
+/* Card */
+.card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+}
+.card-header {
+  padding: 14px 18px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to right, #fafafa, #fdfdfd);
+}
+.card-header span {
+  font-size: 18px;
+}
+.card-header .toggle {
+  font-size: 18px;
+  color: var(--muted);
+  transition: transform 0.3s ease;
+}
+.card.expanded .card-header .toggle {
+  transform: rotate(180deg);
+}
+.card-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease, padding 0.3s ease;
+  padding: 0 18px;
+}
+.card.expanded .card-content {
+  padding: 18px;
+  max-height: 2000px;
+}
+
+/* Sub-sections inside card */
+.section {
+  border-radius: 10px;
+  padding: 14px;
+  margin-bottom: 14px;
+  color: #111;
+}
+.section h3 {
+  margin-bottom: 8px;
+  font-size: 15px;
+  font-weight: 700;
+}
+.section ul {
+  margin-left: 18px;
+  font-size: 14px;
+}
+.section ul li { margin: 4px 0; }
+
+/* Colors */
+.section.ug { background: #ffe5e8; }
+.section.he { background: #e3f7e9; }
+.section.co { background: #f1e3ff; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Course → Career Mapping</h1>
+  <p>Click on a stream to see undergraduate degree, higher education, and career options</p>
+</header>
+
+<div class="container">
+
+  <!-- Health & Life Sciences -->
+  <div class="card">
+    <div class="card-header">
+      <span>Health & Life Sciences</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>Medicine: MBBS, BDS, BAMS, BHMS, BPT</li>
+          <li>Nursing: B.Sc Nursing</li>
+          <li>Pharmacy: B.Pharm</li>
+          <li>Life Sciences: B.Sc. Biotechnology, Microbiology, Genetics, Biochemistry</li>
+          <li>Physiotherapy: BPT</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>Medicine: MD, MS, MCh, DM</li>
+          <li>Nursing: MSc Nursing, PhD</li>
+          <li>Pharmacy: M.Pharm, Pharm.D, Ph.D.</li>
+          <li>Life Sciences: M.Sc, Ph.D.</li>
+          <li>Physiotherapy: MPT, Ph.D.</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Doctor, Pharmacist, Research Scientist, Physiotherapist, Public Health Specialist</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- STEM -->
+  <div class="card">
+    <div class="card-header">
+      <span>STEM / Technical Sciences</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>B.Tech/B.E. (Engineering specializations)</li>
+          <li>B.Sc. Computer Science, BCA</li>
+          <li>B.Sc. Data Science, B.Tech Data Science</li>
+          <li>B.Sc. Physics, Chemistry, Mathematics, Environmental Science</li>
+          <li>B.Sc. Biotechnology, Microbiology</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>M.Tech, M.S., Ph.D. in respective fields</li>
+          <li>M.Sc. Computer Science, Data Science, AI/ML, Ph.D.</li>
+          <li>MBA (Tech Management)</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Software Developer, Data Scientist, Research Scientist, Environmental Consultant, AI/ML Engineer, Academician</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Commerce & Finance -->
+  <div class="card">
+    <div class="card-header">
+      <span>Commerce & Finance</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>B.Com, B.Com (Hons)</li>
+          <li>BBA, BMS</li>
+          <li>B.Com Accounting & Finance, BBA (FIA)</li>
+          <li>B.A. Economics</li>
+          <li>CA, CS, CMA</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>M.Com, MBA (Finance, Marketing, HR, Analytics)</li>
+          <li>M.A. Economics</li>
+          <li>Advanced CA, CS, CMA</li>
+          <li>Ph.D. in Accounting, Finance, Business Administration, Economics</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Financial Analyst, Investment Banker, Chartered Accountant, Business Consultant, Economist, Policy Analyst</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Arts & Humanities -->
+  <div class="card">
+    <div class="card-header">
+      <span>Arts & Humanities</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>B.A. in History, Political Science, Sociology, Psychology, English, Philosophy</li>
+          <li>BFA, Performing Arts</li>
+          <li>Journalism, Mass Communication</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>M.A., M.Phil., Ph.D. in Humanities disciplines</li>
+          <li>MSW, MFA, Journalism (MJMC)</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Teacher, Psychologist, Journalist, Social Worker, Writer, Researcher, Artist</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interdisciplinary -->
+  <div class="card">
+    <div class="card-header">
+      <span>Interdisciplinary & Professional</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>Law: LLB (BA LLB, BBA LLB)</li>
+          <li>Management: BBA, Hotel Management</li>
+          <li>Design: B.Des, B.Arch</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>LLM, Ph.D.</li>
+          <li>MBA, PGDM</li>
+          <li>M.Des, M.Arch</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Lawyer, Architect, Designer, Hotel Manager, Entrepreneur</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Aviation & Defense -->
+  <div class="card">
+    <div class="card-header">
+      <span>Aviation & Defense</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>B.Sc. Aviation, BBA Aviation</li>
+          <li>Defense Studies, NDA Programs</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>MBA Aviation, M.Sc. Defense Studies</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Pilot, Air Traffic Controller, Defense Officer, Aviation Manager</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vocational -->
+  <div class="card">
+    <div class="card-header">
+      <span>Vocational & Skill-Based</span>
+      <span class="toggle">▼</span>
+    </div>
+    <div class="card-content">
+      <div class="section ug">
+        <h3>Undergraduate Degrees</h3>
+        <ul>
+          <li>Diplomas & Certifications in ITI, Polytechnics, Hospitality, Retail</li>
+        </ul>
+      </div>
+      <div class="section he">
+        <h3>Higher Education</h3>
+        <ul>
+          <li>Advanced Diploma, Skill Certifications, B.Voc</li>
+        </ul>
+      </div>
+      <div class="section co">
+        <h3>Career Options</h3>
+        <ul>
+          <li>Technician, Hospitality Staff, Skilled Trades, Retail Professional</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+document.querySelectorAll('.card-header').forEach(header => {
+  header.addEventListener('click', () => {
+    header.parentElement.classList.toggle('expanded');
+  });
+});
+</script>
+
+</body>
+</html>

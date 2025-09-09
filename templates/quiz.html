@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Career Advisor AI</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body{font-family:Arial;background:#f0f8ff;color:#003366;margin:0;padding:0}
+    .container{max-width:800px;margin:30px auto;padding:20px}
+    h1{text-align:center;margin-bottom:20px;font-size:28px}
+    .question-card{background:#fff;border-radius:15px;padding:30px;box-shadow:0 4px 12px rgba(0,0,0,0.08);min-height:300px}
+    .options{display:flex;flex-direction:column;gap:12px;margin-top:10px}
+    .option{background:#e6f2ff;padding:14px;border-radius:12px;cursor:pointer;user-select:none;border:2px solid transparent;display:flex;align-items:center;gap:10px}
+    .option:hover{background:#cce0ff}
+    .option.selected{background:#0066cc;color:#fff;border-color:#004a99}
+    .progress-container{background:#d9eaff;border-radius:20px;height:10px;width:100%;margin:20px 0}
+    .progress-bar{background:#0066cc;height:10px;width:0;border-radius:20px;transition:width .35s}
+    .result-box{background:#fff;border-radius:15px;padding:25px;box-shadow:0 4px 12px rgba(0,0,0,0.08);text-align:center;margin-top:20px}
+    .chart-container{width:300px;height:300px;margin:18px auto}
+    .degree-item{background:#f3f8ff;border:1px solid #dbeefc;padding:8px 10px;border-radius:10px;margin:6px;display:inline-flex;gap:8px;align-items:center}
+    .degrees{display:flex;flex-wrap:wrap;justify-content:center}
+    .quote{font-style:italic;margin-top:12px;color:#444}
+    @media(max-width:480px){.chart-container{width:260px;height:260px}.question-card{min-height:260px;padding:20px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🎓 Career Advisor AI</h1>
+
+    <div class="progress-container">
+      <div id="progress-bar" class="progress-bar"></div>
+    </div>
+
+    <!-- Put server data here safely -->
+    <script id="questions-data" type="application/json">
+      {{ questions_json|tojson|safe }}
+    </script>
+
+    <div id="question-card" class="question-card">
+      <div id="question-text">Loading question...</div>
+      <div id="options" class="options"></div>
+    </div>
+
+    <div id="result" class="result-box" style="display:none;"></div>
+  </div>
+
+  <script>
+    // Parse server-provided questions
+    const questions = JSON.parse(document.getElementById('questions-data').textContent);
+    const total = questions.length;
+    let currentQuestion = 0;
+    let answers = [];
+
+    const questionText = document.getElementById('question-text');
+    const optionsDiv = document.getElementById('options');
+    const questionCard = document.getElementById('question-card');
+    const resultDiv = document.getElementById('result');
+    const progressBar = document.getElementById('progress-bar');
+
+    const quotes = [
+      "🌟 Believe in yourself and all that you are!",
+      "🚀 Your future is created by what you do today, not tomorrow.",
+      "💡 Every expert was once a beginner.",
+      "🔥 Push yourself, because no one else will do it for you.",
+      "🌈 The best way to predict your future is to create it."
+    ];
+
+    function renderOptions() {
+      optionsDiv.innerHTML = `
+        <div class="option" data-value="1">😡 Strongly Disagree</div>
+        <div class="option" data-value="2">🙁 Disagree</div>
+        <div class="option" data-value="3">😐 Neutral</div>
+        <div class="option" data-value="4">🙂 Agree</div>
+        <div class="option" data-value="5">😍 Strongly Agree</div>
+      `;
+      optionsDiv.dataset.busy = "0";
+      optionsDiv.querySelectorAll('.option').forEach(opt => {
+        opt.addEventListener('click', () => {
+          if (optionsDiv.dataset.busy === "1") return;
+          optionsDiv.dataset.busy = "1";
+          const val = parseInt(opt.dataset.value);
+          answers.push(val);
+          optionsDiv.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          setTimeout(()=>{ currentQuestion++; loadQuestion(); }, 250);
+        });
+      });
+    }
+
+    function loadQuestion() {
+      if (currentQuestion < total) {
+        questionText.textContent = `Q${currentQuestion+1}. ${questions[currentQuestion]}`;
+        renderOptions();
+        progressBar.style.width = ((currentQuestion / total) * 100) + "%";
+      } else {
+        if (answers.length !== total) {
+          alert('Answer mismatch — reload and try again.');
+          console.error('answers length', answers.length, 'expected', total);
+          return;
+        }
+        submitAnswers();
+      }
+    }
+
+    async function submitAnswers() {
+      questionCard.style.display = 'none';
+      resultDiv.style.display = 'block';
+      resultDiv.innerHTML = '<p>⏳ Analyzing your responses...</p>';
+      progressBar.style.width = "100%";
+
+      try {
+        const resp = await fetch('/predict', {
+          method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({answers})
+        });
+
+        const data = await resp.json();
+        if (!resp.ok) {
+          resultDiv.innerHTML = `<p style="color:red">Error: ${data.error || JSON.stringify(data)}</p>`;
+          console.error('server error', data);
+          return;
+        }
+
+        const careersHtml = Array.isArray(data.careers) ? `<ul style="text-align:left;display:inline-block;margin-top:10px">${data.careers.map(c => `<li>${c[1]??''} ${c[0]}</li>`).join('')}</ul>` : '';
+        const degreesHtml = Array.isArray(data.degrees) ? `<div class="degrees">${data.degrees.map(d => `<div class="degree-item">${d[1]??''} <span>${d[0]}</span></div>`).join('')}</div>` : '';
+        const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+
+        resultDiv.innerHTML = `
+          <h2>🎯 Recommended Stream: ${data.recommendation ?? ''}</h2>
+          <p>${data.message ?? ''}</p>
+          <h3>💼 Possible Careers</h3>
+          ${careersHtml}
+          ${degreesHtml}
+          <div class="chart-container"><canvas id="radarChart"></canvas></div>
+          <p class="quote">"${randomQuote}"</p>
+        `;
+
+        const labels = data.dimension_scores ? Object.keys(data.dimension_scores) : [];
+        const values = data.dimension_scores ? Object.values(data.dimension_scores) : [];
+
+        new Chart(document.getElementById('radarChart').getContext('2d'), {
+          type: 'radar',
+          data: {
+            labels,
+            datasets: [{
+              label: 'Your Scores',
+              data: values,
+              backgroundColor: 'rgba(0,102,204,0.28)',
+              borderColor: '#0066cc',
+              borderWidth: 2
+            }]
+          },
+          options: { responsive:true, maintainAspectRatio:false, scales:{ r:{ suggestedMin:0, suggestedMax: Math.max(10, ...(values.map(v=>Number(v)||0)))}} }
+        });
+
+      } catch (err) {
+        console.error(err);
+        resultDiv.innerHTML = '<p style="color:red">Internal error — check server logs.</p>';
+      }
+    }
+
+    // start quiz
+    loadQuestion();
+  </script>
+</body>
+</html>
