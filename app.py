@@ -145,6 +145,11 @@ def college_map():
 def mentor():
     return render_template("mentor.html")
 
+@app.route("/exam_tracker")
+def tracker():
+    return render_template("exam_tracker.html")
+
+
 @app.route("/quiz")
 def quiz():
     return render_template("quiz.html", questions_json=questions)
