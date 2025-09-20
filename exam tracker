@@ -7,11 +7,11 @@
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
         body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1f2937, #111827);
-            color: #e2e8f0;
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #0e0e1a, #1a1e2a);
+            color: #d1d5db;
             overflow-y: auto;
         }
         .bubbles {
@@ -24,13 +24,14 @@
         .bubble {
             position: absolute;
             bottom: -150px;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.1);
             border-radius: 50%;
             animation: rise linear infinite;
         }
         @keyframes rise {
-            0% { transform: translateY(0) scale(1); opacity: 0.6; }
-            100% { transform: translateY(-100vh) scale(1.5); opacity: 0; }
+            0% { transform: translateY(0) scale(0.5); opacity: 0; }
+            50% { opacity: 0.3; }
+            100% { transform: translateY(-100vh) scale(1.2); opacity: 0; }
         }
     </style>
 </head>
@@ -40,31 +41,31 @@
     <div class="bubbles" id="bubbles-container"></div>
 
     <!-- Main Container -->
-    <div class="bg-gray-800 bg-opacity-50 backdrop-blur-lg p-6 rounded-3xl shadow-2xl w-full max-w-2xl mt-8 mb-12 relative z-10 border border-gray-700">
-        <h1 class="text-3xl font-bold text-center text-sky-400 mb-2">EXAM COUNTDOWN</h1>
-        <p class="text-center text-gray-400 mb-6">Stay motivated and on track for your exams.</p>
+    <div class="bg-[#1f2937] bg-opacity-70 backdrop-blur-md p-8 rounded-3xl shadow-2xl w-full max-w-2xl mt-8 mb-12 relative z-10 border border-[#374151]">
+        <h1 class="text-4xl font-extrabold text-[#00bcd4] text-center mb-2 drop-shadow-lg">EXAM COUNTDOWN</h1>
+        <p class="text-center text-[#9ca3af] mb-8">Stay motivated and on track for your exams.</p>
         
         <!-- Add Exam Form -->
-        <form id="add-exam-form" class="flex flex-col sm:flex-row flex-wrap gap-4 mb-6">
-            <input type="text" id="EXAM-NAME" placeholder="ENTER EXAM NAME (e.g., JEE Main)" class="flex-1 min-w-[200px] p-3 rounded-lg border-2 border-slate-700 bg-slate-800 text-white placeholder-gray-400 focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition duration-200" required>
+        <form id="add-exam-form" class="flex flex-col sm:flex-row flex-wrap gap-4 mb-8">
+            <input type="text" id="EXAM-NAME" placeholder="ENTER EXAM NAME (e.g., JEE Main)" class="flex-1 min-w-[200px] p-4 rounded-xl border-2 border-[#374151] bg-[#111827] text-white placeholder-[#6b7280] focus:ring-2 focus:ring-[#00bcd4] focus:border-[#00bcd4] transition duration-200" required>
             
             <div class="flex-1 flex flex-col gap-1 min-w-[160px]">
-                <label for="start-date" class="text-sm font-medium text-red-400">START DATE</label>
-                <input type="date" id="start-date" class="p-3 rounded-lg border-2 border-slate-700 bg-slate-800 text-white focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition duration-200" required>
+                <label for="start-date" class="text-sm font-medium text-[#ef4444]">START DATE</label>
+                <input type="date" id="start-date" class="p-4 rounded-xl border-2 border-[#374151] bg-[#111827] text-white focus:ring-2 focus:ring-[#00bcd4] focus:border-[#00bcd4] transition duration-200" required>
             </div>
             
             <div class="flex-1 flex flex-col gap-1 min-w-[160px]">
-                <label for="exam-date" class="text-sm font-medium text-red-400">EXAM DATE</label>
-                <input type="date" id="exam-date" class="p-3 rounded-lg border-2 border-slate-700 bg-slate-800 text-white focus:ring-2 focus:ring-sky-400 focus:border-sky-400 transition duration-200" required>
+                <label for="exam-date" class="text-sm font-medium text-[#ef4444]">EXAM DATE</label>
+                <input type="date" id="exam-date" class="p-4 rounded-xl border-2 border-[#374151] bg-[#111827] text-white focus:ring-2 focus:ring-[#00bcd4] focus:border-[#00bcd4] transition duration-200" required>
             </div>
             
-            <button type="submit" class="bg-gradient-to-r from-purple-600 to-sky-500 text-white font-semibold p-3 rounded-lg hover:from-purple-700 hover:to-sky-600 transition duration-200 shadow-lg sm:mt-6">Add Exam</button>
+            <button type="submit" class="bg-gradient-to-r from-[#22d3ee] to-[#00bcd4] text-[#111827] font-extrabold p-4 rounded-xl hover:from-[#00bcd4] hover:to-[#22d3ee] transition duration-200 shadow-lg sm:mt-6 transform hover:scale-105">Add Exam</button>
         </form>
 
         <!-- Exam List -->
-        <div id="exam-list" class="flex flex-col gap-4">
+        <div id="exam-list" class="flex flex-col gap-6">
             <!-- Exams will be rendered here -->
-            <div class="p-4 text-center text-gray-500 border border-dashed rounded-lg border-gray-600">No exams added yet.</div>
+            <div class="p-6 text-center text-[#6b7280] border-2 border-dashed rounded-xl border-[#374151] bg-[#1f2937]">No exams added yet.</div>
         </div>
     </div>
 
@@ -149,7 +150,7 @@
             countdownIntervals = {};
 
             if (exams.length === 0) {
-                examList.innerHTML = `<div class="p-4 text-center text-gray-500 border border-dashed rounded-lg border-gray-600">No exams added yet.</div>`;
+                examList.innerHTML = `<div class="p-6 text-center text-[#6b7280] border-2 border-dashed rounded-xl border-[#374151] bg-[#1f2937]">No exams added yet.</div>`;
                 return;
             }
 
@@ -157,17 +158,17 @@
 
             exams.forEach(exam => {
                 const examDiv = document.createElement('div');
-                examDiv.className = 'flex flex-col sm:flex-row justify-between items-start sm:items-center bg-gray-800 bg-opacity-70 backdrop-blur-sm p-4 rounded-lg shadow-md border-t-4 border-sky-400 transition-transform duration-300 transform hover:scale-[1.01] min-h-[120px]';
+                examDiv.className = 'flex flex-col sm:flex-row justify-between items-start sm:items-center bg-[#1f2937] p-6 rounded-xl shadow-md border-t-4 border-[#00bcd4] transition-all duration-300 transform hover:scale-[1.02] hover:border-[#1a1e2a] min-h-[120px]';
                 examDiv.innerHTML = `
                     <div class="flex-1 mb-2 sm:mb-0">
-                        <h2 class="text-lg font-semibold text-sky-400">${exam.name}</h2>
-                        <p class="text-sm text-gray-400">Exam Date: ${exam.date}</p>
-                        <p class="text-sm text-gray-400">Start Date: ${exam.startDate}</p>
-                        <p class="text-sm text-gray-400 mt-1 font-semibold">Total Study Period: ${exam.duration} days</p>
+                        <h2 class="text-xl font-bold text-[#00bcd4]">${exam.name}</h2>
+                        <p class="text-sm text-[#9ca3af]">Exam Date: ${exam.date}</p>
+                        <p class="text-sm text-[#9ca3af]">Start Date: ${exam.startDate}</p>
+                        <p class="text-sm text-[#9ca3af] mt-1 font-semibold">Total Study Period: ${exam.duration} days</p>
                     </div>
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-2">
-                        <p class="countdown-text text-lg font-bold text-sky-400" data-exam-id="${exam.id}"></p>
-                        <button class="remove-btn bg-red-600 text-white font-semibold py-1 px-3 rounded-lg hover:bg-red-700 transition duration-200 text-sm">Remove</button>
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+                        <p class="countdown-text text-2xl font-extrabold text-[#00bcd4]" data-exam-id="${exam.id}"></p>
+                        <button class="remove-btn bg-red-600 text-white font-semibold py-2 px-4 rounded-lg hover:bg-red-700 transition duration-200 text-sm transform hover:scale-105">Remove</button>
                     </div>
                 `;
                 
