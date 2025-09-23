@@ -1,197 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Find Government Colleges Near Me</title>
-    <!-- Use the Inter font from Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    <!-- Load Tailwind CSS from CDN for a modern, responsive design -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
-
-        /* Custom CSS for a subtle fade-in animation */
-        .college-card-fade-in {
-            animation: fadeIn 0.5s ease-in-out forwards;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Custom style for the stream header line */
-        .stream-header {
-            border-left: 5px solid #2563eb;
-        }
-
-        /* Custom button styling for the active state */
-        .filter-buttons button.active {
-            background-color: #1e40af; /* Deeper blue for active button */
-            transform: scale(1.05); /* Slight scale for visual feedback */
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Government Colleges Directory</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    body {font-family: 'Inter', sans-serif;}
+    .college-card-fade-in {animation: fadeIn 0.5s ease-in-out forwards;opacity: 0;transform: translateY(10px);}
+    @keyframes fadeIn {from {opacity: 0; transform: translateY(10px);}to {opacity: 1; transform: translateY(0);}}
+    .stream-header {border-left: 5px solid #2563eb;}
+    .filter-buttons button.active {background-color: #1e40af;transform: scale(1.05);}
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-white text-gray-800 flex flex-col min-h-screen">
 
-    <!-- Header Section with animation -->
-    <header class="bg-blue-600 text-white py-12 mb-8 shadow-lg">
-        <div class="container mx-auto text-center px-4 animate-fade-in-down">
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-2">Government Colleges Directory</h1>
-            <p class="text-blue-100 text-lg md:text-xl font-medium">Find your path with confidence.</p>
+  <!-- Header -->
+  <header class="bg-blue-700 text-white py-12 shadow-lg">
+    <div class="container mx-auto text-center px-4">
+      <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Government Colleges Directory</h1>
+      <p class="text-blue-100 text-lg md:text-xl">Explore verified government colleges across states and streams.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto px-4 flex-grow">
+    <section id="college-directory" class="mb-10">
+      <!-- Search + Location -->
+      <div class="flex flex-col md:flex-row items-center gap-4 mb-6">
+        <div class="w-full md:w-3/4">
+          <input type="text" id="search" placeholder="🔍 Search by college name or city..."
+            class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-sm">
         </div>
-    </header>
+        <div class="w-full md:w-1/4">
+          <select id="location-filter"
+            class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-600 shadow-sm">
+            <option value="All">All Locations</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Maharashtra">Maharashtra</option>
+          </select>
+        </div>
+      </div>
 
-    <!-- Main Content Container -->
-    <main class="container mx-auto px-4">
-        <section id="college-directory" class="mb-10">
-            <div class="flex flex-col md:flex-row md:space-x-4 mb-6">
-                <!-- Search Bar -->
-                <div class="w-full md:w-3/4 mb-4 md:mb-0">
-                    <input type="text" id="search" placeholder="🔍 Search by college name or city..."
-                        class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out shadow-sm">
-                </div>
+      <!-- Stream Filters -->
+      <div class="filter-buttons flex flex-wrap justify-center gap-3 mb-8">
+        <button data-stream="All" class="active bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full shadow-md">All Streams</button>
+        <button data-stream="Arts" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full shadow-md">Arts</button>
+        <button data-stream="Commerce" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full shadow-md">Commerce</button>
+        <button data-stream="Science" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-full shadow-md">Science</button>
+      </div>
 
-                <!-- Location Dropdown -->
-                <div class="w-full md:w-1/4">
-                    <select id="location-filter"
-                        class="w-full px-5 py-3 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-300 ease-in-out shadow-sm">
-                        <option value="All">All Locations</option>
-                        <option value="Delhi">Delhi</option>
-                        <option value="Mumbai">Mumbai</option>
-                        <option value="Kolkata">Kolkata</option>
-                    </select>
-                </div>
-            </div>
+      <!-- College List -->
+      <div id="college-container" class="space-y-10">
+        <!-- Cards will appear here -->
+      </div>
+    </section>
+  </main>
 
-            <!-- Stream Filter Buttons -->
-            <div class="filter-buttons flex flex-wrap justify-center gap-3 mb-8">
-                <button data-stream="All" class="active bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">All Streams</button>
-                <button data-stream="Arts" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">Arts</button>
-                <button data-stream="Commerce" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">Commerce</button>
-                <button data-stream="Science" class="bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 px-6 rounded-full shadow-md transition duration-300 ease-in-out transform hover:-translate-y-1">Science</button>
-            </div>
+  <!-- Map Section -->
+  <section id="location-section" class="mt-auto py-12 bg-gray-100 text-center">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-blue-700 mb-6">Find Nearby Government Colleges</h2>
+      <div id="map" class="w-full h-80 bg-gray-200 rounded-xl shadow-lg overflow-hidden flex items-center justify-center">
+        <img src="https://placehold.co/1200x400/93c5fd/ffffff?text=Static+Map+View" alt="Map Placeholder" class="object-cover w-full h-full">
+      </div>
+      <p class="text-sm text-gray-600 mt-2">Static map image shown here. Replace with live map API when ready.</p>
+    </div>
+  </section>
 
-            <!-- College Container -->
-            <div id="college-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- College cards will be dynamically inserted here -->
-            </div>
-        </section>
+  <script>
+    const colleges = [
+      // Delhi
+      {name:"Hindu College", location:"Delhi", stream:"Arts", courses:["BA English","BA History"], fees:"₹15,000–₹30,000/year", website:"https://www.hinducollege.ac.in"},
+      {name:"Miranda House", location:"Delhi", stream:"Arts", courses:["BA English","BA Psychology"], fees:"₹20,000–₹35,000/year", website:"https://www.mirandahouse.ac.in"},
+      {name:"Lady Shri Ram College", location:"Delhi", stream:"Arts", courses:["BA Political Science","BA History"], fees:"₹25,000–₹40,000/year", website:"https://lsr.edu.in"},
+      {name:"SRCC", location:"Delhi", stream:"Commerce", courses:["B.Com Hons","BA Economics"], fees:"₹25,000–₹40,000/year", website:"https://www.srcc.edu"},
+      {name:"Hansraj College", location:"Delhi", stream:"Commerce", courses:["B.Com Hons","B.Com"], fees:"₹20,000–₹35,000/year", website:"https://www.hansrajcollege.ac.in"},
+      {name:"Ramjas College", location:"Delhi", stream:"Commerce", courses:["B.Com","B.Com Hons"], fees:"₹22,000–₹38,000/year", website:"https://ramjas.du.ac.in"},
+      {name:"Kirori Mal College", location:"Delhi", stream:"Science", courses:["B.Sc Physics","B.Sc Chemistry"], fees:"₹20,000–₹35,000/year", website:"https://www.kmc.du.ac.in"},
+      {name:"Hindu College (Science)", location:"Delhi", stream:"Science", courses:["B.Sc Zoology","B.Sc Botany"], fees:"₹25,000–₹40,000/year", website:"https://www.hinducollege.ac.in"},
+      {name:"Sri Venkateswara College", location:"Delhi", stream:"Science", courses:["B.Sc Life Sciences","B.Sc Biochemistry"], fees:"₹23,000–₹37,000/year", website:"https://www.svc.ac.in"},
+      
+      // Rajasthan
+      {name:"University Maharaja’s College", location:"Rajasthan", stream:"Arts", courses:["BA History","BA Hindi"], fees:"₹10,000–₹20,000/year", website:"https://www.uniraj.ac.in"},
+      {name:"University Maharani’s College", location:"Rajasthan", stream:"Arts", courses:["BA English","BA Political Science"], fees:"₹12,000–₹22,000/year", website:"https://www.uniraj.ac.in"},
+      {name:"Banasthali Vidyapith", location:"Rajasthan", stream:"Arts", courses:["BA Hindi","BA Philosophy"], fees:"₹15,000–₹25,000/year", website:"https://www.banasthali.org"},
+      {name:"University Commerce College", location:"Rajasthan", stream:"Commerce", courses:["B.Com","BBA"], fees:"₹15,000–₹28,000/year", website:"https://www.uniraj.ac.in"},
+      {name:"St. Xavier’s College Jaipur", location:"Rajasthan", stream:"Commerce", courses:["B.Com Hons","BBA"], fees:"₹18,000–₹30,000/year", website:"https://www.stxaviersjaipur.org"},
+      {name:"SS Jain Subodh College", location:"Rajasthan", stream:"Commerce", courses:["B.Com","BA Economics"], fees:"₹16,000–₹27,000/year", website:"https://www.subodhpgcollege.com"},
+      {name:"Mohanlal Sukhadia University", location:"Rajasthan", stream:"Science", courses:["B.Sc Physics","B.Sc Chemistry"], fees:"₹20,000–₹32,000/year", website:"https://www.mlsu.ac.in"},
+      {name:"University of Rajasthan (Science)", location:"Rajasthan", stream:"Science", courses:["B.Sc Biology","B.Sc Environmental Science"], fees:"₹18,000–₹30,000/year", website:"https://www.uniraj.ac.in"},
+      {name:"Banasthali Vidyapith (Science)", location:"Rajasthan", stream:"Science", courses:["B.Sc Mathematics","B.Sc Computer Science"], fees:"₹22,000–₹34,000/year", website:"https://www.banasthali.org"},
+      
+      // Maharashtra
+      {name:"Fergusson College", location:"Maharashtra", stream:"Arts", courses:["BA English","BA History"], fees:"₹18,000–₹28,000/year", website:"https://fergusson.edu"},
+      {name:"Elphinstone College", location:"Maharashtra", stream:"Arts", courses:["BA Political Science","BA Philosophy"], fees:"₹20,000–₹30,000/year", website:"https://elphinstone.ac.in"},
+      {name:"Ruparel College", location:"Maharashtra", stream:"Arts", courses:["BA Hindi","BA Sociology"], fees:"₹17,000–₹27,000/year", website:"https://ruparel.edu"},
+      {name:"Sydenham College", location:"Maharashtra", stream:"Commerce", courses:["B.Com","BMS"], fees:"₹22,000–₹35,000/year", website:"https://sydenham.ac.in"},
+      {name:"Brihan Maharashtra College of Commerce", location:"Maharashtra", stream:"Commerce", courses:["B.Com Hons","BBA"], fees:"₹23,000–₹36,000/year", website:"https://www.bmcc.ac.in"},
+      {name:"RA Podar College", location:"Maharashtra", stream:"Commerce", courses:["B.Com","B.Com Hons"], fees:"₹21,000–₹34,000/year", website:"https://www.rapodar.ac.in"},
+      {name:"St. Xavier’s College Mumbai", location:"Maharashtra", stream:"Science", courses:["B.Sc Physics","B.Sc Chemistry"], fees:"₹25,000–₹40,000/year", website:"https://xaviers.ac"},
+      {name:"Institute of Science Mumbai", location:"Maharashtra", stream:"Science", courses:["B.Sc Life Sciences","B.Sc Biotech"], fees:"₹20,000–₹32,000/year", website:"https://www.iscm.ac.in"},
+      {name:"Fergusson College (Science)", location:"Maharashtra", stream:"Science", courses:["B.Sc Mathematics","B.Sc Statistics"], fees:"₹22,000–₹35,000/year", website:"https://fergusson.edu"}
+    ];
 
-        <!-- Map Section (visually simulated since a working API key is not provided) -->
-        <section id="location-section" class="mb-10 text-center">
-            <h2 class="text-3xl font-bold text-blue-600 mb-6">Find Nearby Government Colleges</h2>
-            <div id="map" class="w-full h-80 bg-gray-200 rounded-xl shadow-lg overflow-hidden flex items-center justify-center text-gray-500 text-lg md:text-2xl font-semibold">
-                <!-- Placeholder for map visualization -->
-                <img src="https://placehold.co/1200x400/e2e8f0/6b7280?text=Map+View" alt="Map Placeholder" class="object-cover w-full h-full">
-            </div>
-            <p class="text-sm text-gray-600 mt-2">A live map would appear here if a valid API key were provided.</p>
-        </section>
-    </main>
+    let currentStream = "All";
+    let currentLocation = "All";
+    const collegeContainer = document.getElementById('college-container');
+    const searchInput = document.getElementById('search');
+    const locationFilter = document.getElementById('location-filter');
+    const streamButtons = document.querySelectorAll('.filter-buttons button');
 
-    <script>
-        // Sample College Data with latitude and longitude for the map
-        const colleges = [
-            {name:"Hindu College", location:"Delhi", stream:"Arts", courses:["BA English","BA History"], fees:"₹15,000–₹30,000/year", website:"https://www.hinducollege.ac.in"},
-            {name:"Miranda House", location:"Delhi", stream:"Arts", courses:["BA English","BA Psychology"], fees:"₹20,000–₹35,000/year", website:"https://www.mirandahouse.ac.in"},
-            {name:"St. Xavier's College", location:"Mumbai", stream:"Arts", courses:["BA Arts"], fees:"₹25,000–₹40,000/year", website:"https://www.xaviers.edu"},
+    function displayColleges(list) {
+      collegeContainer.innerHTML = '';
+      const streams = ["Arts","Commerce","Science"];
 
-            {name:"Hansraj College", location:"Delhi", stream:"Commerce", courses:["B.Com Hons","B.Com"], fees:"₹20,000–₹35,000/year", website:"https://www.hansrajcollege.ac.in"},
-            {name:"SRCC", location:"Delhi", stream:"Commerce", courses:["B.Com Hons","BA Economics"], fees:"₹25,000–₹40,000/year", website:"https://www.srcc.edu"},
-            {name:"St. Xavier's College", location:"Kolkata", stream:"Commerce", courses:["B.Com"], fees:"₹30,000–₹45,000/year", website:"https://www.sxccal.edu"},
+      streams.forEach(stream => {
+        const streamColleges = list.filter(c => c.stream === stream);
+        if (streamColleges.length > 0) {
+          const streamHeader = document.createElement('h3');
+          streamHeader.textContent = `${stream} Stream`;
+          streamHeader.className = 'stream-header text-2xl font-bold text-blue-700 mt-8 mb-4 pl-4';
+          collegeContainer.appendChild(streamHeader);
 
-            {name:"St. Xavier's College", location:"Mumbai", stream:"Science", courses:["B.Sc Physics","B.Sc Chemistry"], fees:"₹30,000–₹50,000/year", website:"https://www.xaviers.edu"},
-            {name:"Presidency University", location:"Kolkata", stream:"Science", courses:["B.Sc Physics","B.Sc Biology"], fees:"₹25,000–₹40,000/year", website:"https://www.presiuniv.ac.in"},
-            {name:"University of Delhi Colleges", location:"Delhi", stream:"Science", courses:["B.Sc in various specializations"], fees:"₹20,000–₹35,000/year", website:"https://www.du.ac.in"}
-        ];
+          const grid = document.createElement('div');
+          grid.className = 'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6';
 
-        let currentStream = "All";
-        let currentLocation = "All";
-        const collegeContainer = document.getElementById('college-container');
-        const searchInput = document.getElementById('search');
-        const locationFilter = document.getElementById('location-filter');
-        const streamButtons = document.querySelectorAll('.filter-buttons button');
+          streamColleges.forEach((college, index) => {
+            const card = document.createElement('div');
+            card.className = 'college-card bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out college-card-fade-in';
+            card.style.animationDelay = `${index * 0.1}s`;
+            card.innerHTML = `
+              <h4 class="text-xl font-bold text-blue-600 mb-2">${college.name}</h4>
+              <p class="text-gray-600 mb-1"><strong>📍 Location:</strong> ${college.location}</p>
+              <p class="text-gray-600 mb-1"><strong>🎓 Courses:</strong> ${college.courses.join(', ')}</p>
+              <p class="text-gray-600 mb-2"><strong>💰 Fees:</strong> ${college.fees}</p>
+              <a href="${college.website}" target="_blank" class="inline-block bg-blue-600 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-blue-700">🌐 Visit Website</a>
+            `;
+            grid.appendChild(card);
+          });
 
-        // Function to display colleges with a fade-in animation
-        function displayColleges(list) {
-            collegeContainer.innerHTML = '';
-            
-            // Group colleges by stream and display
-            const streams = ["Arts", "Commerce", "Science"];
-            streams.forEach(stream => {
-                const streamColleges = list.filter(c => c.stream === stream);
-                if (streamColleges.length > 0) {
-                    const streamHeader = document.createElement('h3');
-                    streamHeader.textContent = `${stream} Stream`;
-                    streamHeader.className = 'stream-header text-xl font-bold text-gray-900 mt-8 mb-4 pl-4';
-                    collegeContainer.appendChild(streamHeader);
-
-                    streamColleges.forEach((college, index) => {
-                        const card = document.createElement('div');
-                        card.className = 'college-card bg-white p-6 rounded-2xl shadow-md hover:shadow-lg transform hover:-translate-y-1 transition duration-300 ease-in-out college-card-fade-in';
-                        card.style.animationDelay = `${index * 0.1}s`; // Staggered animation
-                        card.innerHTML = `
-                            <h4 class="text-xl font-bold text-blue-600 mb-2">${college.name}</h4>
-                            <p class="text-gray-600 mb-1"><strong>📍 Location:</strong> ${college.location}</p>
-                            <p class="text-gray-600 mb-1"><strong>🎓 Courses:</strong> ${college.courses.join(', ')}</p>
-                            <p class="text-gray-600 mb-2"><strong>💰 Fees:</strong> ${college.fees}</p>
-                            <a href="${college.website}" target="_blank" class="inline-block bg-blue-500 text-white font-medium py-2 px-4 rounded-full text-sm hover:bg-blue-600 transition-colors duration-300">
-                                🌐 Visit Website
-                            </a>
-                        `;
-                        collegeContainer.appendChild(card);
-                    });
-                }
-            });
+          collegeContainer.appendChild(grid);
         }
+      });
+    }
 
-        // Function to apply all active filters and search term
-        function applyFilters() {
-            const searchTerm = searchInput.value.toLowerCase();
-            const filteredList = colleges.filter(c => {
-                const nameMatch = c.name.toLowerCase().includes(searchTerm);
-                const locationMatch = c.location.toLowerCase().includes(searchTerm);
-                const streamMatch = (currentStream === "All" || c.stream === currentStream);
-                const locationFilterMatch = (currentLocation === "All" || c.location === currentLocation);
-                return (nameMatch || locationMatch) && streamMatch && locationFilterMatch;
-            });
-            displayColleges(filteredList);
-        }
+    function applyFilters() {
+      const searchTerm = searchInput.value.toLowerCase();
+      const filteredList = colleges.filter(c => {
+        const nameMatch = c.name.toLowerCase().includes(searchTerm);
+        const locationMatch = c.location.toLowerCase().includes(searchTerm);
+        const streamMatch = (currentStream === "All" || c.stream === currentStream);
+        const locationFilterMatch = (currentLocation === "All" || c.location === currentLocation);
+        return (nameMatch || locationMatch) && streamMatch && locationFilterMatch;
+      });
+      displayColleges(filteredList);
+    }
 
-        // Event listeners for interactivity
-        streamButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons
-                streamButtons.forEach(btn => btn.classList.remove('active'));
-                // Add active class to the clicked button
-                button.classList.add('active');
-                currentStream = button.dataset.stream;
-                applyFilters();
-            });
-        });
+    streamButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        streamButtons.forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        currentStream = button.dataset.stream;
+        applyFilters();
+      });
+    });
 
-        locationFilter.addEventListener('change', (e) => {
-            currentLocation = e.target.value;
-            applyFilters();
-        });
+    locationFilter.addEventListener('change', e => {currentLocation = e.target.value; applyFilters();});
+    searchInput.addEventListener('input', applyFilters);
 
-        searchInput.addEventListener('input', () => {
-            applyFilters();
-        });
-
-        // Initial display of all colleges
-        displayColleges(colleges);
-    </script>
+    displayColleges(colleges);
+  </script>
 </body>
 </html>
+
